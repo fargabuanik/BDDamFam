@@ -17,12 +17,12 @@ import java.time.Duration;
 public class BaseClass {
 
 
-	Configuration config = new Configuration();
-	WebDriver driver;
-	protected HomePage homePage;
-	protected AboutYou aboutYou;
-	protected GetAQuote getAQuote;
-	protected VerifyYourcity verifyYourcity;
+	public Configuration config = new Configuration();
+	public static WebDriver driver;
+	public static HomePage homePage;
+	public static AboutYou aboutYou;
+	public static GetAQuote getAQuote;
+	public static VerifyYourcity verifyYourcity;
 	
 	public void setUpDriver() {	
 		initDriver(config.getProperty(BROWSER));
@@ -65,7 +65,7 @@ public class BaseClass {
 		}
 	}
 	
-	private void initObjectClasses() {
+    public static void initObjectClasses() {
 		homePage = new HomePage(driver);
 		aboutYou = new AboutYou(driver);
 		getAQuote = new GetAQuote(driver);

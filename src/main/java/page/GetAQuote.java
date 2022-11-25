@@ -18,9 +18,9 @@ public class GetAQuote {
 	}
 	@FindBy(xpath ="//input[@name='zipCode']")
 	WebElement zipCodElement;
-	@FindBy(className ="SelectionTiles__tile-icon icon-auto")
+	@FindBy(xpath ="//span[@class='SelectionTiles__tile-cta' and normalize-space(text())='Car']")
 	WebElement carElement;
-	@FindBy(className ="LoadingButton__content")
+	@FindBy(xpath = "//span[@class='LoadingButton__content']")
 	WebElement letsGoElement;
 
 	public void zipCode(String zipCode) {

@@ -16,9 +16,9 @@ public class VerifyYourcity {
 		waits = new CommonWaits(driver);
 		PageFactory.initElements(driver, this); 
 	}
-		@FindBy(xpath = "//input[@id='selected-city-id-queen-creek']")
+		@FindBy(xpath ="//input[@id='selected-city-id-queen-creek']")
 		WebElement checkBoxElement;	
-		@FindBy(partialLinkText ="CONTINUE")
+		@FindBy(xpath ="(//span[@class='customer4-MuiButton-label'])[2]")
 		WebElement continuButtonElement;
 		
 		public void clickcheckBox() {
