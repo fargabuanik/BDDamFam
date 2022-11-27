@@ -17,20 +17,26 @@ public class GetAQuote {
 		PageFactory.initElements(driver, this); 
 	}
 	@FindBy(xpath ="//input[@name='zipCode']")
-	WebElement zipCodElement;
-	@FindBy(xpath ="//span[@class='SelectionTiles__tile-cta' and normalize-space(text())='Car']")
-	WebElement carElement;
+	WebElement zipCodeElement; 
+	@FindBy(xpath ="//span[@class='SelectionTiles__tile-cta' and normalize-space(text())='Car']")  
+	WebElement carElement; 
 	@FindBy(xpath = "//span[@class='LoadingButton__content']")
 	WebElement letsGoElement;
-
+	
 	public void zipCode(String zipCode) {
-		input(zipCodElement, zipCode);
+		input(zipCodeElement, zipCode);
 	}
 	public void clickCar() {
 		click(carElement);
 	}
 	public void ClickletsGo() {
 		click(letsGoElement); 
+	}
+	
+	public void getQuoteSteps(String zip) {
+		input(zipCodeElement, zip);
+		click(carElement);
+		click(letsGoElement);
 	}
 }
 

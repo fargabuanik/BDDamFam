@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = "@auto",
+		tags = "@auto and not @steps and not @data-driven",
 		features = "src/test/java/features/",
 		glue = {"base", "steps"},
 		monochrome = true,

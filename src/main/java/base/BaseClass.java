@@ -1,18 +1,29 @@
 package base;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;            
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import com.google.common.io.Files;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import page.AboutYou;
 import page.GetAQuote;
 import page.HomePage;
 import page.VerifyYourcity;
+import reporting.Logs;
 import utils.Configuration;
 import static utils.IConstant.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public class BaseClass {
 
@@ -37,7 +48,6 @@ public class BaseClass {
 	
 	private void initDriver(String browser) { 
 		switch (browser) {
-		
 		case CHROME:
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -80,4 +90,18 @@ public class BaseClass {
 	public void closingDriverSession() {
 		getDriver().quit();
 	}  
+	public String takeScreenShot(String testName) {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("_MMddyyyy_hhmmss");
+		File localFile = new File("test-output/screenShots/" + testName + format.format(date) +".png");
+		TakesScreenshot ss = (TakesScreenshot) driver;
+		File driverSS = ss.getScreenshotAs(OutputType.FILE);
+		try {
+			Files.copy(driverSS, localFile);
+			Logs.log("Screen Shot captured at \n" + localFile.getAbsolutePath());
+		}catch (IOException e) {
+			Logs.log("Error occurs during taking ScreenShot..!");
+		}
+		return localFile.getAbsolutePath();
+	}
 }

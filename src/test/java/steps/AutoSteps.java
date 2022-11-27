@@ -49,9 +49,10 @@ public class AutoSteps extends BaseClass {
 
 	@Then("title of the page will be <auto quote page>")
 	public void title_of_the_page_will_be_auto_quote_page() {
-		Logs.log(getDriver().getTitle()); 
+		Logs.log(getDriver().getCurrentUrl()); 
 	
 	}
+	
 
 	@When("user input address")
 	public void user_input_address() {
@@ -62,8 +63,30 @@ public class AutoSteps extends BaseClass {
 	@Then("user able to click start new quote button")
 	public void user_able_to_click_start_new_quote_button() {
 		aboutYou.startNewQuote();
-	    
 	}
+	
+	@When("homepage steps done")
+	public void homepage_steps_done() {
+	    homePage.clickStartNewQuote();
+	}
+	@When("get A Quote page steps done <{string}>")
+	public void get_a_quote_page_steps_done(String string) {
+		getAQuote.getQuoteSteps(string);
+	
+	}
+	 
+	@When("Verify your city steps done")
+	public void verify_your_city_steps_done() {
+		verifyYourcity.verifyYourCitySteps();
+	 
+	}
+	@Then("about you page steps done")
+	public void about_you_page_steps_done() {
+	aboutYou.aboutYoySteps("S 199th st, Queen Creek");
+	}
+
+
+
 
 
 }
