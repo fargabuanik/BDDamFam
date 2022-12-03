@@ -42,7 +42,6 @@ public class BaseClass {
 		initObjectClasses();
 	}
 	
-	//
 	private void initDriver(String browser) { 
 		switch (browser) {
 		case CHROME:
