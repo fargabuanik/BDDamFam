@@ -41,7 +41,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
 		initObjectClasses();
 	}
-	///
+	
 	private void initDriver(String browser) { 
 		switch (browser) {
 		case CHROME:
