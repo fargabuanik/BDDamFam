@@ -1,9 +1,6 @@
-package common;
-
-      
-import java.util.List;
+package common;   
+import java.util.List; 
 import java.util.NoSuchElementException;
-
 import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

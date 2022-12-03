@@ -1,8 +1,6 @@
 package page;
 
-import static common.CommonActions.click;
-import static common.CommonActions.input;
-
+import static common.CommonActions.*; 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

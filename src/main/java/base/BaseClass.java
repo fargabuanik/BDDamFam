@@ -1,15 +1,13 @@
 package base;
 
-import org.openqa.selenium.OutputType;
+import org.openqa.selenium.OutputType; 
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;            
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import com.google.common.io.Files;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import page.AboutYou;
 import page.GetAQuote;
@@ -18,7 +16,6 @@ import page.VerifyYourcity;
 import reporting.Logs;
 import utils.Configuration;
 import static utils.IConstant.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -26,7 +23,6 @@ import java.time.Duration;
 import java.util.Date;
 
 public class BaseClass {
-
 
 	public Configuration config = new Configuration();
 	public static WebDriver driver;
@@ -46,6 +42,7 @@ public class BaseClass {
 		initObjectClasses();
 	}
 	
+	//
 	private void initDriver(String browser) { 
 		switch (browser) {
 		case CHROME:
@@ -80,7 +77,6 @@ public class BaseClass {
 		aboutYou = new AboutYou(driver);
 		getAQuote = new GetAQuote(driver);
 		verifyYourcity = new VerifyYourcity (driver);
-	
 	}
 
 	public WebDriver getDriver() {
